@@ -531,6 +531,12 @@ public class CameraSettings {
     private static ArrayList<String> getSupportedVideoQuality(int cameraId) {
         ArrayList<String> supported = new ArrayList<String>();
         // Check for supported quality
+        if (CamcorderProfile.hasProfile(cameraId, CamcorderProfile.QUALITY_4kDCI)) {
+              supported.add(Integer.toString(CamcorderProfile.QUALITY_4kDCI));
+        }
+        if (CamcorderProfile.hasProfile(cameraId, CamcorderProfile.QUALITY_4kUHD)) {
+              supported.add(Integer.toString(CamcorderProfile.QUALITY_4kUHD));
+        }
         if (CamcorderProfile.hasProfile(cameraId, CamcorderProfile.QUALITY_HIGH)) {
             supported.add(Integer.toString(CamcorderProfile.QUALITY_HIGH));
         }
